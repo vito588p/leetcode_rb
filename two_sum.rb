@@ -14,8 +14,12 @@
 
 def two_sum(nums, target)
   h = {}
-  nums.each.with_index do |k, i|
+  nums.each_with_index do |k, i|
       return [h[target - k], i] if h.key?(target - k)
       h[k] = i
   end
 end
+
+puts two_sum([2,7,11,15],9)
+puts two_sum([3,2,4],6)
+puts two_sum([3,3],6)
