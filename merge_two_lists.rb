@@ -17,5 +17,5 @@
 # Output: [0]
 
 def merge_two_lists(list1, list2)
-    
+  
 end
