@@ -16,6 +16,39 @@
 # Input: list1 = [], list2 = [0]
 # Output: [0]
 
-def merge_two_lists(list1, list2)
-  
+# Definition for singly-linked list.
+class ListNode
+    attr_accessor :val, :next
+    def initialize(val = 0, _next = nil)
+        @val = val
+        @next = _next
+    end
 end
+# @param {ListNode} list1
+# @param {ListNode} list2
+# @return {ListNode}
+def merge_two_lists(list1, list2)
+  dummy = ListNode.new
+  current = dummy
+
+  while list1 && list2
+    if list1.val < list2.val
+      current.next = list1
+      list1 = list1.next
+    else
+      current.next = list2
+      list2 = list2.next
+    end
+    current = current.next
+  end
+
+  current.next = list1 || list2
+
+  return dummy.next
+end
+
+# Runtime  78ms
+# Beats 16.31% of users with Ruby
+
+# Memory  211.06MB
+# Beats 47.96% of users with Ruby
